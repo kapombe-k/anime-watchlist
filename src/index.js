@@ -9,7 +9,18 @@ document.addEventListener("DOMContentLoaded", () => {
     let favoriteAnime = [];
 
     //console.log("working 1"):Displays in console...
-
+    //add event listener for search button
+    searchButton.addEventListener('click', (e) => { 
+        e.preventDefault();
+        fetchAnime();
+    });
+    //add event listener for search input area
+    userEntry.addEventListener("keydown", (e) => {
+        if (e.key==='Enter') {
+            e.preventDefault();
+            fetchAnime();
+        }
+     });
     //set an async/await function to fetch data from JIKEN API
     async function fetchAnime() {
         try {
@@ -26,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         } catch (error) {
             console.error(error);
-            resultDiv.innerHTML=`<p>Failed to fetch ${userInput}. Try again later</p>`
+            resultDiv.innerHTML=`<p>Failed to fetch anime. Try again later</p>`
         }
         //console.log('working 2'):No display in console/browser
     }
@@ -122,5 +133,5 @@ document.addEventListener("DOMContentLoaded", () => {
         //saveFavoritesToLocalStorage();
         console.log("removed", animeId);
     }
-    
+
 });
