@@ -30,6 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         //console.log('working 2'):No display in console/browser
     }
+    
     //Render fetched anime into section divs
     function displayAnime() {
         resultDiv.innerHTML = `<h2>Search Results</h2>`//replaces previous results with the heading when refreshed
@@ -67,4 +68,15 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
     };
+
+    function addToFavorites(anime) {
+        //this function must not add repeated entries hence an if/else statement is in order
+        if (!favoriteAnime.some(fav=> fav.mal_id === anime.mal_id)) {
+            favoriteAnime.push(anime);//adds to the array
+            displayFavorites();
+            //saveFavoritesToLocalStorage();
+        } else {
+            alert (`${anime.title} is already in your favorites`)
+        }
+    }
 });
