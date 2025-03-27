@@ -32,9 +32,10 @@ document.addEventListener("DOMContentLoaded", () => {
             }
             //the response from the server will be declared as variable called data and converted to JSON format
             const data = await response.json();
+            
             //call data into a function;
-            displayAnime(data.data)//anime data is in the data object so is chained
-
+            const animelist = data.data;//anime data is in the data object so is chained
+            displayAnime(data.data);
         } catch (error) {
             console.error(error);
             resultDiv.innerHTML=`<p>Failed to fetch anime. Try again later</p>`
@@ -43,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     
     //Render fetched anime into search resuly div
-    function displayAnime() {
+    function displayAnime(animelist) {
         resultDiv.innerHTML = `<h2>Search Results</h2>`//replaces previous results with the heading when refreshed
       
         //Add Error catchpoint using conditional statements
