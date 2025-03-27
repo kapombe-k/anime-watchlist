@@ -57,7 +57,13 @@ document.addEventListener("DOMContentLoaded", () => {
             addButton.addEventListener('click', (e) => {
                 e.preventDefault();
                 addToFavorites(anime);
-             });
+            });
+            
+            //to append different elements together
+            animeCard.appendChild(image);
+            animeCard.appendChild(title);
+            animeCard.appendChild(addButton);
+            resultDiv.appendChild(animeCard);//combined elements into a single div
         });
 
     };
