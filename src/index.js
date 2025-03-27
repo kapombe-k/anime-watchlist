@@ -106,6 +106,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 e.preventDefault();
                 removeFromFavorites(anime.mal_id);
             });
+
+            //patch all parts together
+            favoriteCard.appendChild(image);
+            favoriteCard.appendChild(title);
+            favoriteCard.appendChild(deleteButton);
+            favoritesDiv.appendChild(favoriteCard);
             
         });
     }
