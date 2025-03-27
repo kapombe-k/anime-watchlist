@@ -51,6 +51,13 @@ document.addEventListener("DOMContentLoaded", () => {
             const image = document.createElement('img');//creates image tag
             image.src = anime.images?.jpg?.image_url || 'placeholder_image_url.png';//sets placeholder if image is not found
             image.alt = anime.title;
+
+            const addButton = document.createElement('button');//button to add to favorites
+            addButton.textContent = 'Add to Favorites';
+            addButton.addEventListener('click', (e) => {
+                e.preventDefault();
+                addToFavorites(anime);
+             });
         });
 
     };
