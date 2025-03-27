@@ -40,7 +40,18 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
         
-        animelist
+        animelist.forEach(anime => {
+            //create tile constants
+            const animeCard = document.createElement('div');//creates container div
+            animeCard.classList.add('anime-card');
+
+            const title = document.createElement('h3');//shows heading display
+            title.textContent = anime.title;
+
+            const image = document.createElement('img');//creates image tag
+            image.src = anime.images?.jpg?.image_url || 'placeholder_image_url.png';//sets placeholder if image is not found
+            image.alt = anime.title;
+        });
 
     };
 });
