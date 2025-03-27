@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
         //console.log('working 2'):No display in console/browser
     }
     
-    //Render fetched anime into section divs
+    //Render fetched anime into search resuly div
     function displayAnime() {
         resultDiv.innerHTML = `<h2>Search Results</h2>`//replaces previous results with the heading when refreshed
       
@@ -78,5 +78,16 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
             alert (`${anime.title} is already in your favorites`)
         }
+    }
+    function displayFavorites() {
+        favoritesDiv.innerHTML = '<h2>Favorites</h2>';//this clears existing text
+
+        //Div content should not be empty
+        if (favoriteAnime.length===0) {
+            favoritesDiv.innerHTML = '<p>No favories added...yet (┬┬﹏┬┬)</p>';
+            return;
+        }
+
+        
     }
 });
