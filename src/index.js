@@ -111,8 +111,16 @@ document.addEventListener("DOMContentLoaded", () => {
             favoriteCard.appendChild(image);
             favoriteCard.appendChild(title);
             favoriteCard.appendChild(deleteButton);
-            favoritesDiv.appendChild(favoriteCard);
-            
+            favoritesDiv.appendChild(favoriteCard);            
         });
     }
+
+    //function to remove listing from favorites
+    function removeFromFavorites(animeId) {
+        favoriteAnime = favoriteAnime.filter(anime => anime.mal_id !== animeId);
+        displayFavorites();
+        //saveFavoritesToLocalStorage();
+        console.log("removed", animeId);
+    }
+    
 });
