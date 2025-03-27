@@ -87,7 +87,26 @@ document.addEventListener("DOMContentLoaded", () => {
             favoritesDiv.innerHTML = '<p>No favories added...yet (┬┬﹏┬┬)</p>';
             return;
         }
+        //This part is similar to the above function to populate the results div, mostly only the variables change but the logic remains similar
+        favoriteAnime.forEach(anime => { 
+            const favoriteCard = document.createElement('div');
+            favoriteCard.classList.add('favorite-card');
 
-        
+            const title = document.createElement("h3"); //shows heading display
+            title.textContent = anime.title;
+
+            const image = document.createElement("img"); //creates image tag
+            image.src = anime.images?.jpg?.image_url || "placeholder_image_url.png"; //sets placeholder if image is not found
+            image.alt = anime.title;
+
+            //delete from faves button added
+            const deleteButton = document.createElement("button");
+            deleteButton.textContent = 'Remove';
+            deleteButton.addEventListener('click', (e) => {
+                e.preventDefault();
+                removeFromFavorites(anime.mal_id);
+            });
+            
+        });
     }
 });
