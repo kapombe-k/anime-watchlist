@@ -5,8 +5,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const userEntry = document.getElementById("userEntry");
   const resultDiv = document.getElementById("results");
   const favoritesDiv = document.getElementById("favorites");
+
   //set empty array for favorites
   let favoriteAnime = [];
+  const localServer = "http://localhost:3000";
 
   //console.log("working 1"):Displays in console...
   //add event listener for search button
@@ -46,24 +48,49 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     //console.log('working 2'):No display in console/browser
   }
-    //declaring async/await functions to append db.json
-    async function saveFavesToDb(anime) {
-        try {
-            
-        } catch (error) {
-            
-        }
-    };
-    async function loadFavesFromDb() {
-        try {
-            
-        } catch (error) {
-            
-        }
+  //declaring async/await functions to append db.json
+  async function saveFavesToDb(anime) {
+    try {
+      const response = await fetch(`${localServer}/favorites`, {
+        method: "POST",
+        body: JSON.stringify(anime),
+      });
+      if (response.ok) {
+        favoriteAnime = await response.json();
+        displayFavorites();
+      } else {
+        console.log("Failed to load!");
+      }
+    } catch (error) {
+      console.error(error);
     }
-    async function deleteAnimeFromDb(animeId) {
-        
+  }
+  async function loadFavesFromDb() {
+    try {
+      const response = await fetch(`${localStorage}/favorites`);
+      if (response.ok) {
+        favoriteAnime = await response.json();
+        displayFavorites();
+      } else {
+        console.error("Failed to load local favorited");
+      }
+    } catch (error) {}
+  }
+  async function deleteAnimeFromDb(animeId) {
+    try {
+      const response = await fetch(`${localStorage}/favorites/${animeId}`, {
+        method: "DELETE",
+      });
+      if (response.ok) {
+        favoriteAnime = favoriteAnime.filter((fav) => fav.mal_id !== animeId);
+        displayFavorites();
+      } else {
+        console.error("Failed to delete local favorite");
+      }
+    } catch (error) {
+      console.error(error);
     }
+  }
 
   //Render fetched anime into search resuly div
   function displayAnime(animelist) {
@@ -152,7 +179,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function removeFromFavorites(animeId) {
     favoriteAnime = favoriteAnime.filter((anime) => anime.mal_id !== animeId);
     displayFavorites();
-    //saveFavoritesToLocalStorage();
+    deleteAnimeFromDb();
     console.log("removed", animeId);
   }
 });
