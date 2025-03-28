@@ -1,33 +1,91 @@
-body{
-    background-image: url(./background.jpg);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-attachment: fixed;
-    background-size: auto;
+body {
+  background-image: url(./background.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: auto;
 }
 
-#results{
-    display:grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 20px;
+#results {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
 }
 
-.anime-card{
-    border: 2px;
-    border-radius: 10px;
-    padding: 15px;
-    text-align: center;
-    display: flex;/*flex layout for internal elements*/
-    flex-direction: column;/*stacks contents vertically*/
-    align-items: center;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+.anime-card {
+  border: 2px;
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+  display: flex; /*flex layout for internal elements*/
+  flex-direction: column; /*stacks contents vertically*/
+  align-items: center;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.anime-card img{
-    max-width: 100%;
-    height: auto;
-    border-radius: 5px;
-    margin-bottom: 10px;
+.anime-card img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+  margin-bottom: 10px;
 }
 
+.anime-card h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 1.2em;
+}
 
+#favorites {
+  padding: 20px;
+  border-top: 1px seagreen;
+  margin-top: 20px;
+}
+
+#favorites h2 {
+  margin-top: 0;
+}
+
+.favorite-card {
+  border: 2px gray;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  box-shadow: 2px 2px 2px cornflowerblue;
+}
+
+.favorite-card img {
+  max-width: 80px;
+  height: auto;
+  border-radius: 5px;
+}
+
+.favorite-card button {
+  background-color: darkseagreen;
+  color: rgb(131, 89, 26);
+  border: cornflowerblue;
+  padding: 5px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.anime-card button {
+  background-color: cadetblue;
+  color: black;
+  border: navajowhite;
+  padding: 5px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.anime-card button:hover {
+  opacity: 0.75;
+}
+
+.favorite-card button:hover {
+  opacity: 0.75;
+}
