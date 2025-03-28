@@ -32,8 +32,6 @@ To run this project locally, follow these steps:
     git clone git@github.com:kapombe-k/anime-watchlist.git
     cd anime-watchlist
     ```
-    *(Replace `[repository URL]` with the actual URL of your GitHub repository and `[repository name]` with the name of your project folder.)*
-
 2.  **Install JSON Server (if you haven't already):**
     This project uses `json-server` to simulate a backend for storing favorites. If you don't have it installed globally, you can install it using npm:
     ```bash
