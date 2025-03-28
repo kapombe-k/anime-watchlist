@@ -97,7 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   //Render fetched anime into search resuly div
   function displayAnime(animelist) {
-    resultDiv.innerHTML = `<h2>✨Results✨</h2>`; //replaces previous results with the heading when refreshed
+    resultDiv.textContent = `✨Results✨*`; //replaces previous results with the heading when refreshed/
 
     //Add Error catchpoint using conditional statements
     if (!animelist || animelist.length === 0) {
