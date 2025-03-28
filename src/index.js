@@ -43,6 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
       //call data into a function;
       const animelist = data.data; //anime data is in the data object so is chained
       displayAnime(data.data);
+      document.getElementById("userEntry").value = "";
     } catch (error) {
       console.error(error);
       resultDiv.innerHTML = `<p>Failed to fetch anime. Try again later</p>`;
