@@ -17,7 +17,17 @@ body{
     border-radius: 10px;
     padding: 15px;
     text-align: center;
-    display: flex;
-    flex-direction: column;
+    display: flex;/*flex layout for internal elements*/
+    flex-direction: column;/*stacks contents vertically*/
     align-items: center;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
 }
+
+.anime-card img{
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+
