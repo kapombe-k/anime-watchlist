@@ -86,8 +86,10 @@ document.addEventListener("DOMContentLoaded", () => {
         method: "DELETE",
       });
       if (response.ok) {
-        favoriteAnime = favoriteAnime.filter((fav) => fav.mal_id !== animeId);
-        displayFavorites();
+        //commented out these two lines to stop a refresh on page.
+        //favoriteAnime = favoriteAnime.filter((fav) => fav.mal_id !== animeId);
+        //displayFavorites(); Instead add a different function and see if the output is different
+        loadFavesFromDb();
       } else {
         console.error("Failed to delete local favorite");
       }
