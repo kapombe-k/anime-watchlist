@@ -52,11 +52,11 @@ document.addEventListener("DOMContentLoaded", () => {
   async function saveFavesToDb(anime) {
     try {
       const response = await fetch(`${localServer}/favorites`, {
-        method: "POST",
+          method: "POST",
+          headers:{"Content-Type":"application/json",},
         body: JSON.stringify(anime),
       });
       if (response.ok) {
-        favoriteAnime = await response.json();
         displayFavorites();
       } else {
         console.log("Failed to load!");
@@ -69,7 +69,8 @@ document.addEventListener("DOMContentLoaded", () => {
     try {
       const response = await fetch(`${localStorage}/favorites`);
       if (response.ok) {
-        favoriteAnime = await response.json();
+          const data = await response.json();
+          favoriteAnime = data;
         displayFavorites();
       } else {
         console.error("Failed to load local favorited");
@@ -179,7 +180,9 @@ document.addEventListener("DOMContentLoaded", () => {
   function removeFromFavorites(animeId) {
     favoriteAnime = favoriteAnime.filter((anime) => anime.mal_id !== animeId);
     displayFavorites();
-    deleteAnimeFromDb();
+    deleteAnimeFromDb(animeId);
     console.log("removed", animeId);
   }
+    
+    loadFavesFromDb();
 });
