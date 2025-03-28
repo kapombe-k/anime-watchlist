@@ -96,7 +96,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   //Render fetched anime into search resuly div
   function displayAnime(animelist) {
-    resultDiv.innerHTML = `<h2>Search Results</h2>`; //replaces previous results with the heading when refreshed
+    resultDiv.innerHTML = `<h2>✨Results✨</h2>`; //replaces previous results with the heading when refreshed
 
     //Add Error catchpoint using conditional statements
     if (!animelist || animelist.length === 0) {
@@ -117,6 +117,7 @@ document.addEventListener("DOMContentLoaded", () => {
       image.alt = anime.title;
 
       const addButton = document.createElement("button"); //button to add to favorites
+      
       addButton.textContent = "Favorite❤️";
       addButton.addEventListener("click", (e) => {
         e.preventDefault();
