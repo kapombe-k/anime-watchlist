@@ -10,19 +10,19 @@
   </head>
   <body>
     <header></header>
-    <h1>Anime WatchList</h1>
+    <h1 style="align-self: center;;">Anime WatchList</h1>
 
-    <div id="input-area">
-      <input type="text" placeholder="Search Anime" id="userEntry" />
-      <button id="findBtn">Search!</button>
+    <div id="input-area" style="display: flex; align-items: center; align-self: center;">
+      <input type="text" placeholder="Search Anime" id="userEntry" style="width: 20%; align-self: center;" />
+      <button id="findBtn" style="margin-left: 10px;"> Search!</button>
     </div>
 
     <div class="grid text-center" id="main-content" style="display: flex; flex-direction: row; align-items: flex-start; gap: 20px;">
-      <div class="g-col-6" id="results">
+      <div id="results">
           <h2>Top Results</h2>
       </div>
 
-      <div class="g-col-6" id="favorites">
+      <div id="favorites">
           <h2>Favorite Titles</h2>
       </div>
     </div>

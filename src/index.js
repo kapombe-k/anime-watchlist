@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
   //set empty array for favorites
   let favoriteAnime = [];
   //IMPLEMENTED NEW CONSTANT FOR THE SERVER LINK --DO NOT CHANGE LOCAL HOST!!!
-  const localServer = "http://localhost:3000/favorites";
+  const localServer = "http://localhost:3000";
 
   //console.log("working 1"):Displays in console...
   //add event listener for search button
@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   async function loadFavesFromDb() {
     try {
-      const response = await fetch(`${localStorage}/favorites`);
+      const response = await fetch(`${localServer}/favorites`);
       if (response.ok) {
         const data = await response.json();
         favoriteAnime = data;
@@ -78,9 +78,10 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     } catch (error) {}
   }
+
   async function deleteAnimeFromDb(animeId) {
     try {
-      const response = await fetch(`${localStorage}/favorites/${animeId}`, {
+      const response = await fetch(`${localServer}/favorites/${animeId}`, {
         method: "DELETE",
       });
       if (response.ok) {
@@ -117,7 +118,7 @@ document.addEventListener("DOMContentLoaded", () => {
       image.alt = anime.title;
 
       const addButton = document.createElement("button"); //button to add to favorites
-      
+
       addButton.textContent = "Favorite❤️";
       addButton.addEventListener("click", (e) => {
         e.preventDefault();
@@ -135,9 +136,10 @@ document.addEventListener("DOMContentLoaded", () => {
   function addToFavorites(anime) {
     //this function must not add repeated entries hence an if/else statement is in order
     if (!favoriteAnime.some((fav) => fav.mal_id === anime.mal_id)) {
-      favoriteAnime.push(anime); //adds to the array
+      favoriteAnime.push(anime);
       displayFavorites();
-      //saveFavoritesToLocalStorage();
+      saveFavesToDb(anime);
+      //saveFavoritesToLocalStorage;
     } else {
       alert(`${anime.title} is already in your favorites`);
     }
