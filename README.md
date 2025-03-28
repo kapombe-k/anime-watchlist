@@ -14,7 +14,7 @@ In its most basic form, this application enables users to:
 * **View Favorites:** A dedicated section displays all the anime that the user has added to their favorites.
 * **Remove from Favorites:** Users can remove anime from their favorites list by clicking a "REMOVE🗑️" button next to each favorite item.
 * **Local Data Persistence:** The application uses a local `db.json` file (served by a JSON server) to store and retrieve the user's favorite anime, ensuring that the list persists across sessions.
-* An intro to the usage of the app is provided at https://drive.google.com/file/d/1vX8L9E_oh5UDMFR15JUd0ck5h_aagS7M/view?usp=drive_link
+* An intro to the usage of the app is provided at https://drive.google.com/file/d/1vX8L9E_oh5UDMFR15JUd0ck5h_aagS7M/view?usp=sharing
 
 ## Technologies Used
 
