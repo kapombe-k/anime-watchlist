@@ -8,7 +8,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   //set empty array for favorites
   let favoriteAnime = [];
-  const localServer = "http://localhost:3000";
+  //IMPLEMENTED NEW CONSTANT FOR THE SERVER LINK --DO NOT CHANGE LOCAL HOST!!!
+  const localServer = "http://localhost:3000/favorites";
 
   //console.log("working 1"):Displays in console...
   //add event listener for search button
@@ -52,8 +53,8 @@ document.addEventListener("DOMContentLoaded", () => {
   async function saveFavesToDb(anime) {
     try {
       const response = await fetch(`${localServer}/favorites`, {
-          method: "POST",
-          headers:{"Content-Type":"application/json",},
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(anime),
       });
       if (response.ok) {
@@ -69,8 +70,8 @@ document.addEventListener("DOMContentLoaded", () => {
     try {
       const response = await fetch(`${localStorage}/favorites`);
       if (response.ok) {
-          const data = await response.json();
-          favoriteAnime = data;
+        const data = await response.json();
+        favoriteAnime = data;
         displayFavorites();
       } else {
         console.error("Failed to load local favorited");
@@ -116,7 +117,7 @@ document.addEventListener("DOMContentLoaded", () => {
       image.alt = anime.title;
 
       const addButton = document.createElement("button"); //button to add to favorites
-      addButton.textContent = "Add to Favorites";
+      addButton.textContent = "Favorite❤️";
       addButton.addEventListener("click", (e) => {
         e.preventDefault();
         addToFavorites(anime);
@@ -162,7 +163,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       //delete from faves button added
       const deleteButton = document.createElement("button");
-      deleteButton.textContent = "Remove";
+      deleteButton.textContent = "REMOVE🗑️";
       deleteButton.addEventListener("click", (e) => {
         e.preventDefault();
         removeFromFavorites(anime.mal_id);
@@ -183,6 +184,6 @@ document.addEventListener("DOMContentLoaded", () => {
     deleteAnimeFromDb(animeId);
     console.log("removed", animeId);
   }
-    
-    loadFavesFromDb();
+
+  loadFavesFromDb();
 });
