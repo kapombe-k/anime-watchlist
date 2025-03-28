@@ -118,11 +118,11 @@ document.addEventListener("DOMContentLoaded", () => {
       image.alt = anime.title;
 
       const addButton = document.createElement("button"); //button to add to favorites
-
       addButton.textContent = "Favorite❤️";
       addButton.addEventListener("click", (e) => {
         e.preventDefault();
         addToFavorites(anime);
+        return;
       });
 
       //to append different elements together
@@ -170,6 +170,7 @@ document.addEventListener("DOMContentLoaded", () => {
       deleteButton.addEventListener("click", (e) => {
         e.preventDefault();
         removeFromFavorites(anime.mal_id);
+        return;
       });
 
       //patch all parts together
